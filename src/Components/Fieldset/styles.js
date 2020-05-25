@@ -1,6 +1,7 @@
 export default {
   fieldset: {
-    border: '1px solid #cccccc'
+    border: '1px solid #cccccc',
+    margin: 0
   },
   grid: {
     alignItems: 'center',

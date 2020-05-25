@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 
-import { Box, Fieldset, InputNumber } from './Components'
+import { Box, Checkbox, Fieldset, InputNumber } from './Components'
 import useInputChange from './useInputChange'
 
 function App() {
@@ -11,10 +11,18 @@ function App() {
     borderRight: '8',
     borderBottom: '8',
     borderLeft: '8',
+
+    marginTop: '8',
+    marginRight: '8',
+    marginBottom: '8',
+    marginLeft: '8',
+
     paddingTop: '8',
     paddingRight: '8',
     paddingBottom: '8',
-    paddingLeft: '8'
+    paddingLeft: '8',
+
+    minHeight: '0'
   }
 
   const [inputs, handleInputChange] = useInputChange(initialState)
@@ -22,6 +30,38 @@ function App() {
   return (
     <div className="App">
       <div className="controls">
+
+        <Fieldset legend="Margin">
+          <InputNumber
+            label="margin-top"
+            min={0}
+            name="marginTop"
+            onChange={handleInputChange}
+            value={inputs.marginTop}
+          />
+          <InputNumber
+            label="margin-right"
+            min={0}
+            name="marginRight"
+            onChange={handleInputChange}
+            value={inputs.marginRight}
+          />
+          <InputNumber
+            label="margin-bottom"
+            min={0}
+            name="marginBottom"
+            onChange={handleInputChange}
+            value={inputs.marginBottom}
+          />
+          <InputNumber
+            label="margin-left"
+            min={0}
+            name="marginLeft"
+            onChange={handleInputChange}
+            value={inputs.marginLeft}
+          />
+        </Fieldset>
+
         <Fieldset legend="Border">
           <InputNumber
             label="border-top"
@@ -83,6 +123,16 @@ function App() {
             value={inputs.paddingLeft}
           />
         </Fieldset>
+
+        <Fieldset legend="Content">
+          <InputNumber
+            label="min-height"
+            min={0}
+            name="minHeight"
+            onChange={handleInputChange}
+            value={inputs.minHeight}
+          />
+        </Fieldset>
       </div>
       <div className="output">
         <Box
@@ -90,10 +140,18 @@ function App() {
           borderRight={parseInt(inputs.borderRight)}
           borderBottom={parseInt(inputs.borderBottom)}
           borderLeft={parseInt(inputs.borderLeft)}
+
+          marginTop={parseInt(inputs.marginTop)}
+          marginRight={parseInt(inputs.marginRight)}
+          marginBottom={parseInt(inputs.marginBottom)}
+          marginLeft={parseInt(inputs.marginLeft)}
+
           paddingTop={parseInt(inputs.paddingTop)}
           paddingRight={parseInt(inputs.paddingRight)}
           paddingBottom={parseInt(inputs.paddingBottom)}
           paddingLeft={parseInt(inputs.paddingLeft)}
+
+          minHeight={parseInt(inputs.minHeight)}
         />
       </div>
     </div>

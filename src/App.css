@@ -20,11 +20,16 @@ body {
 }
 
 .App .controls {
-  flex: 0 1 230px;
+  flex: 0 1 210px;
+}
+
+.App .controls fieldset {
+  margin-bottom: 12px;
 }
 
 .App .output {
   flex: 1 0 auto;
+  padding: 24px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

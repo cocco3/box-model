@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
 /** @jsx jsx */
@@ -12,87 +12,77 @@ function Box({
   borderRight,
   borderBottom,
   borderLeft,
+
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
+
   paddingTop,
   paddingRight,
   paddingBottom,
-  paddingLeft
+  paddingLeft,
+
+  minHeight,
+
+  text
 }) {
 
-  // #region Content Box
-  const contentBoxHeight = 32
+  const BoxRef = useRef(null)
+  const [height, setHeight] = useState(null)
 
-  const contentBoxStyles = {
-    ...styles.box,
-    ...styles.boxContent,
-    label: 'box-content'
+  useEffect(() => {
+    if (BoxRef) {
+      setHeight(BoxRef.current.offsetHeight)
+    }
+  }, [
+    borderTop,
+    borderBottom,
+    paddingTop,
+    paddingBottom,
+    minHeight,
+    setHeight
+  ])
+
+  const inlineStylesOuter = {
+    padding: `${marginTop}px ${marginRight}px ${marginBottom}px ${marginLeft}px`
   }
 
-  const ContentBoxNode = (
-    <span
-      css={contentBoxStyles}
-      style={{
-        top: `${borderTop + paddingTop + contentBoxHeight}px`,
-        right: `${borderRight + paddingRight}px`,
-        bottom: `${borderBottom + paddingBottom + contentBoxHeight}px`,
-        left: `${borderLeft + paddingLeft}px`
-      }}
-    >
-      Hello world
-    </span>
-  )
-
-  // #endregion
-
-  const paddingBoxStyles = {
-    ...styles.box,
-    ...styles.boxPadding,
-    label: 'box-padding'
+  const inlineStylesInner = {
+    borderWidth: `${borderTop}px ${borderRight}px ${borderBottom}px ${borderLeft}px`,
+    minHeight: `${minHeight}px`,
+    padding: `${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px`
   }
 
-  const PaddingBoxNode = (
+  const HeightNode = (
     <div
-      css={paddingBoxStyles}
+      css={styles.height}
       style={{
-        top: `${borderTop + paddingTop}px`,
-        right: `${borderRight + paddingRight}px`,
-        bottom: `${borderBottom + paddingBottom}px`,
-        left: `${borderLeft + paddingLeft}px`
+        marginBottom: marginBottom,
+        marginTop: marginTop
       }}
     >
-      {ContentBoxNode}
+      <span>{`${height}px`}</span>
     </div>
   )
-
-  const borderBoxStyles = {
-    ...styles.box,
-    ...styles.boxBorder,
-    label: 'box-border'
-  }
-
-  const BorderBoxNode = (
-    <div
-      css={borderBoxStyles}
-      style={{
-        top: `${borderTop}px`,
-        right: `${borderRight}px`,
-        bottom: `${borderBottom}px`,
-        left: `${borderLeft}px`
-      }}
-    >
-      {PaddingBoxNode}
-    </div>
-  )
-
-  const inlineStyles = {
-    height: `${borderTop + borderBottom + paddingTop + paddingBottom + contentBoxHeight}px`
-  }
 
   return (
-    <div
-      css={styles.wrap}
-      style={inlineStyles}
-    >
-      {BorderBoxNode}
+    <div style={{ display: 'flex', flexDirection: 'row', position: 'relative' }}>
+      <div
+        css={styles.outer}
+        style={inlineStylesOuter}
+      >
+        <div
+          ref={BoxRef}
+          css={styles.inner}
+          style={inlineStylesInner}
+        >
+          <div css={styles.content}>
+            {text}
+          </div>
+        </div>
+      </div>
+      {HeightNode}
     </div>
   )
 }
@@ -102,10 +92,20 @@ Box.propTypes = {
   borderRight: PropTypes.number,
   borderBottom: PropTypes.number,
   borderLeft: PropTypes.number,
+
+  marginTop: PropTypes.number,
+  marginRight: PropTypes.number,
+  marginBottom: PropTypes.number,
+  marginLeft: PropTypes.number,
+
   paddingTop: PropTypes.number,
   paddingRight: PropTypes.number,
   paddingBottom: PropTypes.number,
-  paddingLeft: PropTypes.number
+  paddingLeft: PropTypes.number,
+
+  minHeight: PropTypes.number,
+
+  text: PropTypes.string
 }
 
 Box.defaultProps = {
@@ -113,10 +113,20 @@ Box.defaultProps = {
   borderRight: 0,
   borderBottom: 0,
   borderLeft: 0,
+
+  marginTop: 0,
+  marginRight: 0,
+  marginBottom: 0,
+  marginLeft: 0,
+
   paddingTop: 0,
   paddingRight: 0,
   paddingBottom: 0,
-  paddingLeft: 0
+  paddingLeft: 0,
+
+  minHeight: 0,
+
+  text: 'Hello world'
 }
 
 export default Box

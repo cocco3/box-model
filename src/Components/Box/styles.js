@@ -1,21 +1,48 @@
 export default {
-  wrap: {
-    border: '0 solid transparent',
-    position: 'relative'
+  outer: {
+    backgroundColor: '#ffabab',
   },
-  box: {
-    position: 'absolute'
+  inner: {
+    backgroundColor: '#c9ff81',
+    border: '0 solid #ffde8e'
   },
-  boxBorder: {
-    backgroundColor: '#f8cc63',
-    zIndex: 1
+  content: {
+    backgroundColor: '#80ccff'
   },
-  boxPadding: {
-    backgroundColor: '#c5d936',
-    zIndex: 2
-  },
-  boxContent: {
-    backgroundColor: '#0763a1',
-    zIndex: 3
+  height: {
+    display: 'flex',
+    alignItems: 'center',
+    marginLeft: '8px',
+    position: 'relative',
+    zIndex: 2,
+    borderLeft: '1px solid #666',
+    paddingLeft: '4px',
+
+    span: {
+      background: 'white',
+      zIndex: 3
+    },
+
+    '&::before': {
+      background: '#666',
+      display: 'block',
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      height: '1px',
+      width: '7px',
+      left: '-4px'
+    },
+
+    '&::after': {
+      background: '#666',
+      display: 'block',
+      content: '""',
+      position: 'absolute',
+      bottom: 0,
+      height: '1px',
+      width: '7px',
+      left: '-4px'
+    }
   }
 }
