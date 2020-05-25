@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 
-import { Box, Checkbox, Fieldset, InputNumber } from './Components'
+import { Box, Fieldset, InputNumber } from './Components'
 import useInputChange from './useInputChange'
 
 function App() {
@@ -22,7 +22,8 @@ function App() {
     paddingBottom: '8',
     paddingLeft: '8',
 
-    minHeight: '0'
+    minHeight: '0',
+    height: null
   }
 
   const [inputs, handleInputChange] = useInputChange(initialState)
@@ -132,6 +133,13 @@ function App() {
             onChange={handleInputChange}
             value={inputs.minHeight}
           />
+          <InputNumber
+            label="height"
+            min={0}
+            name="height"
+            onChange={handleInputChange}
+            value={inputs.height}
+          />
         </Fieldset>
       </div>
       <div className="output">
@@ -152,6 +160,7 @@ function App() {
           paddingLeft={parseInt(inputs.paddingLeft)}
 
           minHeight={parseInt(inputs.minHeight)}
+          height={parseInt(inputs.height)}
         />
       </div>
     </div>

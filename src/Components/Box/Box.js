@@ -24,16 +24,17 @@ function Box({
   paddingLeft,
 
   minHeight,
+  height,
 
   text
 }) {
 
   const BoxRef = useRef(null)
-  const [height, setHeight] = useState(null)
+  const [offsetHeight, setOffsetHeight] = useState(null)
 
   useEffect(() => {
     if (BoxRef) {
-      setHeight(BoxRef.current.offsetHeight)
+      setOffsetHeight(BoxRef.current.offsetHeight)
     }
   }, [
     borderTop,
@@ -41,7 +42,8 @@ function Box({
     paddingTop,
     paddingBottom,
     minHeight,
-    setHeight
+    height,
+    setOffsetHeight
   ])
 
   const inlineStylesOuter = {
@@ -50,6 +52,7 @@ function Box({
 
   const inlineStylesInner = {
     borderWidth: `${borderTop}px ${borderRight}px ${borderBottom}px ${borderLeft}px`,
+    ...height && { height: `${height}px` },
     minHeight: `${minHeight}px`,
     padding: `${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px`
   }
@@ -62,7 +65,7 @@ function Box({
         marginTop: marginTop
       }}
     >
-      <span>{`${height}px`}</span>
+      <span>{`${offsetHeight}px`}</span>
     </div>
   )
 
@@ -104,6 +107,7 @@ Box.propTypes = {
   paddingLeft: PropTypes.number,
 
   minHeight: PropTypes.number,
+  height: PropTypes.number,
 
   text: PropTypes.string
 }
@@ -125,6 +129,7 @@ Box.defaultProps = {
   paddingLeft: 0,
 
   minHeight: 0,
+  height: null,
 
   text: 'Hello world'
 }
