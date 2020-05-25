@@ -9,8 +9,8 @@ html {
 }
 
 body {
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 12px;
+  line-height: 1;
   padding: 24px;
 }
 
@@ -20,7 +20,8 @@ body {
 }
 
 .App .controls {
-  flex: 0 1 210px;
+  flex: 0 1 200px;
+  padding-right: 24px;
 }
 
 .App .controls fieldset {
@@ -29,9 +30,12 @@ body {
 
 .App .output {
   flex: 1 0 auto;
-  max-width: 300px;
-  padding: 24px;
-  width: 100%;
+}
+
+.App .box-wrap {
+  position: sticky;
+  top: 0;
+  padding: 12px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

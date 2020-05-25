@@ -4,8 +4,8 @@ export default (theme) => ({
   },
   inner: {
     alignItems: 'center',
-    backgroundColor: '#c9ff81',
-    border: '0 solid #ffde8e',
+    backgroundColor: theme.colors.padding,
+    border: `0 solid ${theme.colors.border}`,
     display: 'flex'
   },
   content: {

@@ -25,9 +25,16 @@ function Box({
   paddingBottom,
   paddingLeft,
 
-  lineHeight,
   minHeight,
   height,
+  maxHeight,
+
+  minWidth,
+  width,
+  maxWidth,
+
+  fontSize,
+  lineHeight,
 
   text
 }) {
@@ -70,6 +77,11 @@ function Box({
 
     ...minHeight && { minHeight },
     ...height && { height },
+    ...maxHeight && { maxHeight },
+
+    ...minWidth && { minWidth },
+    ...width && { width },
+    ...maxWidth && { maxWidth },
   }
 
   const HeightNode = (
@@ -85,7 +97,7 @@ function Box({
   )
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'row', position: 'relative' }}>
+    <div style={{ display: 'flex', flexDirection: 'row' }}>
       <div css={styles.outer}>
         <div
           ref={BoxRef}
@@ -94,7 +106,10 @@ function Box({
         >
           <div
             css={styles.content}
-            style={{ lineHeight: `${lineHeight}px` }}
+            style={{
+              fontSize: `${fontSize}px`,
+              lineHeight: `${lineHeight}px`
+            }}
           >
             {text}
           </div>
@@ -123,6 +138,13 @@ Box.propTypes = {
 
   minHeight: PropTypes.number,
   height: PropTypes.number,
+  maxHeight: PropTypes.number,
+
+  minWidth: PropTypes.number,
+  width: PropTypes.number,
+  maxWidth: PropTypes.number,
+
+  fontSize: PropTypes.number,
   lineHeight: PropTypes.number,
 
   text: PropTypes.string
@@ -144,11 +166,18 @@ Box.defaultProps = {
   paddingBottom: 0,
   paddingLeft: 0,
 
-  lineHeight: 0,
   minHeight: 0,
   height: null,
+  maxHeight: null,
 
-  text: 'Hello world'
+  minWidth: 0,
+  width: null,
+  maxWidth: null,
+
+  fontSize: null,
+  lineHeight: null,
+
+  text: null
 }
 
 export default Box

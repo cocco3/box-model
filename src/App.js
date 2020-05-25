@@ -5,36 +5,47 @@ import './App.css'
 import { jsx } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 
-import { Box, Fieldset, InputNumber } from './Components'
+import { Box, Fieldset, InputNumber, InputText } from './Components'
 import useInputChange from './useInputChange'
 
 const theme = {
   colors: {
-    margin: '#ffabab'
+    margin: '#ffabab',
+    border: '#ffde8e',
+    padding: '#c9ff81',
   }
 }
 
 function App() {
 
   const initialState = {
-    borderTop: '8',
-    borderRight: '8',
-    borderBottom: '8',
-    borderLeft: '8',
-
     marginTop: '8',
     marginRight: '8',
     marginBottom: '8',
     marginLeft: '8',
 
-    paddingTop: '8',
-    paddingRight: '8',
-    paddingBottom: '8',
-    paddingLeft: '8',
+    borderTop: '12',
+    borderRight: '12',
+    borderBottom: '12',
+    borderLeft: '12',
 
-    lineHeight: '24',
+    paddingTop: '16',
+    paddingRight: '16',
+    paddingBottom: '16',
+    paddingLeft: '16',
+
     minHeight: '0',
-    height: ''
+    height: '',
+    maxHeight: '',
+
+    minWidth: '0',
+    width: '',
+    maxWidth: '',
+
+    fontSize: '16',
+    lineHeight: '24',
+
+    text: 'Hello world'
   }
 
   const [inputs, handleInputChange] = useInputChange(initialState)
@@ -137,14 +148,7 @@ function App() {
             />
           </Fieldset>
 
-          <Fieldset legend="Content">
-            <InputNumber
-              label="line-height"
-              min={0}
-              name="lineHeight"
-              onChange={handleInputChange}
-              value={inputs.lineHeight}
-            />
+          <Fieldset legend="Height">
             <InputNumber
               label="min-height"
               min={0}
@@ -159,29 +163,93 @@ function App() {
               onChange={handleInputChange}
               value={inputs.height}
             />
+            <InputNumber
+              label="max-height"
+              min={0}
+              name="maxHeight"
+              onChange={handleInputChange}
+              value={inputs.maxHeight}
+            />
+          </Fieldset>
+
+          <Fieldset legend="Width">
+            <InputNumber
+              label="min-width"
+              min={0}
+              name="minWidth"
+              onChange={handleInputChange}
+              value={inputs.minWidth}
+            />
+            <InputNumber
+              label="width"
+              min={0}
+              name="width"
+              onChange={handleInputChange}
+              value={inputs.width}
+            />
+            <InputNumber
+              label="max-width"
+              min={0}
+              name="maxWidth"
+              onChange={handleInputChange}
+              value={inputs.maxWidth}
+            />
+          </Fieldset>
+          <Fieldset legend="Font">
+            <InputNumber
+              label="font-size"
+              min={0}
+              name="fontSize"
+              onChange={handleInputChange}
+              value={inputs.fontSize}
+            />
+            <InputNumber
+              label="line-height"
+              min={0}
+              name="lineHeight"
+              onChange={handleInputChange}
+              value={inputs.lineHeight}
+            />
+            <InputText
+              label="text"
+              name="text"
+              onChange={handleInputChange}
+              value={inputs.text}
+            />
           </Fieldset>
         </div>
         <div className="output">
-          <Box
-            borderTop={parseInt(inputs.borderTop)}
-            borderRight={parseInt(inputs.borderRight)}
-            borderBottom={parseInt(inputs.borderBottom)}
-            borderLeft={parseInt(inputs.borderLeft)}
+          <div className="box-wrap">
+            <Box
+              borderTop={parseInt(inputs.borderTop)}
+              borderRight={parseInt(inputs.borderRight)}
+              borderBottom={parseInt(inputs.borderBottom)}
+              borderLeft={parseInt(inputs.borderLeft)}
 
-            marginTop={parseInt(inputs.marginTop)}
-            marginRight={parseInt(inputs.marginRight)}
-            marginBottom={parseInt(inputs.marginBottom)}
-            marginLeft={parseInt(inputs.marginLeft)}
+              marginTop={parseInt(inputs.marginTop)}
+              marginRight={parseInt(inputs.marginRight)}
+              marginBottom={parseInt(inputs.marginBottom)}
+              marginLeft={parseInt(inputs.marginLeft)}
 
-            paddingTop={parseInt(inputs.paddingTop)}
-            paddingRight={parseInt(inputs.paddingRight)}
-            paddingBottom={parseInt(inputs.paddingBottom)}
-            paddingLeft={parseInt(inputs.paddingLeft)}
+              paddingTop={parseInt(inputs.paddingTop)}
+              paddingRight={parseInt(inputs.paddingRight)}
+              paddingBottom={parseInt(inputs.paddingBottom)}
+              paddingLeft={parseInt(inputs.paddingLeft)}
 
-            lineHeight={parseInt(inputs.lineHeight)}
-            minHeight={parseInt(inputs.minHeight)}
-            height={parseInt(inputs.height)}
-          />
+              minHeight={parseInt(inputs.minHeight)}
+              height={parseInt(inputs.height)}
+              maxHeight={parseInt(inputs.maxHeight)}
+
+              minWidth={parseInt(inputs.minWidth)}
+              width={parseInt(inputs.width)}
+              maxWidth={parseInt(inputs.maxWidth)}
+
+              fontSize={parseInt(inputs.fontSize)}
+              lineHeight={parseInt(inputs.lineHeight)}
+
+              text={inputs.text}
+            />
+          </div>
         </div>
       </div>
     </ThemeProvider>
