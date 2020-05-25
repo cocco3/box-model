@@ -20,6 +20,12 @@ body {
   }
 }
 
+@media (max-width: 600px) {
+  .App {
+    flex-direction: column-reverse;
+  }  
+}
+
 .App {
   display: flex;
   flex-direction: row;
