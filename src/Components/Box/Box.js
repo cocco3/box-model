@@ -5,7 +5,9 @@ import PropTypes from 'prop-types'
 import { jsx } from '@emotion/core'
 import css from '@emotion/css/macro'
 
-import styles from './styles'
+import useThemeStyles from '../../useThemeStyles'
+
+import baseStyles from './styles'
 
 function Box({
   borderTop,
@@ -30,6 +32,8 @@ function Box({
   text
 }) {
 
+  const styles = useThemeStyles(baseStyles)
+
   const BoxRef = useRef(null)
   const [offsetHeight, setOffsetHeight] = useState(null)
 
@@ -48,23 +52,32 @@ function Box({
     setOffsetHeight
   ])
 
-  const inlineStylesOuter = {
-    padding: `${marginTop}px ${marginRight}px ${marginBottom}px ${marginLeft}px`
-  }
-
   const inlineStylesInner = {
-    borderWidth: `${borderTop}px ${borderRight}px ${borderBottom}px ${borderLeft}px`,
-    ...height && { height: `${height}px` },
-    minHeight: `${minHeight}px`,
-    padding: `${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px`
+    ...borderTop && { borderTopWidth: borderTop },
+    ...borderRight && { borderRightWidth: borderRight },
+    ...borderBottom && { borderBottomWidth: borderBottom },
+    ...borderLeft && { borderLeftWidth: borderLeft },
+    
+    ...marginTop && { marginTop },
+    ...marginRight && { marginRight },
+    ...marginBottom && { marginBottom },
+    ...marginLeft && { marginLeft },
+
+    ...paddingTop && { paddingTop },
+    ...paddingRight && { paddingRight },
+    ...paddingBottom && { paddingBottom },
+    ...paddingLeft && { paddingLeft },
+
+    ...minHeight && { minHeight },
+    ...height && { height },
   }
 
   const HeightNode = (
     <div
       css={styles.height}
       style={{
-        marginBottom: marginBottom,
-        marginTop: marginTop
+        ...marginBottom && { marginBottom },
+        ...marginTop && { marginTop }
       }}
     >
       <span>{`${offsetHeight}px`}</span>
@@ -73,10 +86,7 @@ function Box({
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row', position: 'relative' }}>
-      <div
-        css={styles.outer}
-        style={inlineStylesOuter}
-      >
+      <div css={styles.outer}>
         <div
           ref={BoxRef}
           css={styles.inner}

@@ -1,10 +1,12 @@
-export default {
+export default (theme) => ({
   outer: {
-    backgroundColor: '#ffabab',
+    backgroundColor: theme.colors.margin,
   },
   inner: {
+    alignItems: 'center',
     backgroundColor: '#c9ff81',
-    border: '0 solid #ffde8e'
+    border: '0 solid #ffde8e',
+    display: 'flex'
   },
   content: {
     backgroundColor: '#80ccff'
@@ -45,4 +47,4 @@ export default {
       left: '-4px'
     }
   }
-}
+})

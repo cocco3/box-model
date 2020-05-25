@@ -29,7 +29,9 @@ body {
 
 .App .output {
   flex: 1 0 auto;
+  max-width: 300px;
   padding: 24px;
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
