@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { jsx } from '@emotion/core'
 import css from '@emotion/css/macro'
 
-import useThemeStyles from '../../useThemeStyles'
+import { useThemeStyles } from '../../hooks'
 
 import baseStyles from './styles'
 

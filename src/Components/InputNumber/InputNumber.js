@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 import { jsx } from '@emotion/core'
 import css from '@emotion/css/macro'
 
+import { useCreateId } from '../../hooks'
+
 import styles from './styles'
 
 function InputNumber({
@@ -15,12 +17,15 @@ function InputNumber({
   onChange,
   value
 }) {
+  const id = useCreateId()
 
   return (
     <React.Fragment>
-      <label>{label}</label>
+      <label htmlFor={id.current}>{label}</label>
       <input
         css={styles.input}
+        id={id.current}
+        inputMode="numeric"
         max={max}
         min={min}
         name={name}

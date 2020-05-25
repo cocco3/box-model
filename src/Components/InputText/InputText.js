@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 import { jsx } from '@emotion/core'
 import css from '@emotion/css/macro'
 
+import { useCreateId } from '../../hooks'
+
 import styles from './styles'
 
 function InputText({
@@ -13,12 +15,14 @@ function InputText({
   onChange,
   value
 }) {
+  const id = useCreateId()
 
   return (
     <React.Fragment>
-      <label>{label}</label>
+      <label htmlFor={id.current}>{label}</label>
       <input
         css={styles.input}
+        id={id.current}
         name={name}
         onChange={onChange}
         type="text"

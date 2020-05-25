@@ -5,8 +5,8 @@ import './App.css'
 import { jsx } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 
-import { Box, Fieldset, InputNumber, InputText } from './Components'
-import useInputChange from './useInputChange'
+import { Box, Fieldset, InputNumber, InputText } from './components'
+import { useInputChange } from './hooks'
 
 const theme = {
   colors: {
