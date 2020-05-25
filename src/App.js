@@ -10,6 +10,7 @@ import { useInputChange } from './hooks'
 
 const theme = {
   colors: {
+    outline: '#1a04d0',
     margin: '#ffabab',
     border: '#ffde8e',
     padding: '#c9ff81',
@@ -44,6 +45,9 @@ function App() {
 
     fontSize: '16',
     lineHeight: '24',
+
+    outline: '',
+    outlineOffset: '',
 
     text: 'Hello world!'
   }
@@ -80,6 +84,9 @@ function App() {
 
             fontSize={parseInt(inputs.fontSize)}
             lineHeight={parseInt(inputs.lineHeight)}
+
+            outline={parseInt(inputs.outline)}
+            outlineOffset={parseInt(inputs.outlineOffset)}
 
             text={inputs.text}
           />
@@ -247,6 +254,21 @@ function App() {
               name="text"
               onChange={handleInputChange}
               value={inputs.text}
+            />
+          </Fieldset>
+          <Fieldset legend="Outline">
+            <InputNumber
+              label="outline"
+              min={0}
+              name="outline"
+              onChange={handleInputChange}
+              value={inputs.outline}
+            />
+            <InputNumber
+              label="outline-offset"
+              name="outlineOffset"
+              onChange={handleInputChange}
+              value={inputs.outlineOffset}
             />
           </Fieldset>
         </div>

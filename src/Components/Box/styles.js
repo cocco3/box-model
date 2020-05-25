@@ -6,7 +6,9 @@ export default (theme) => ({
     alignItems: 'center',
     backgroundColor: theme.colors.padding,
     border: `0 solid ${theme.colors.border}`,
-    display: 'flex'
+    display: 'flex',
+    outline: `0 dashed ${theme.colors.outline}`,
+    cursor: 'pointer'
   },
   content: {
     backgroundColor: '#80ccff'

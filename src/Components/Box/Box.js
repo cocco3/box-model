@@ -36,6 +36,9 @@ function Box({
   fontSize,
   lineHeight,
 
+  outline,
+  outlineOffset,
+
   text
 }) {
 
@@ -113,6 +116,9 @@ function Box({
     ...minWidth && { minWidth },
     ...width && { width },
     ...maxWidth && { maxWidth },
+
+    ...outline && { outlineWidth: outline },
+    ...outlineOffset && { outlineOffset }
   }
 
   const HeightNode = (
@@ -194,6 +200,9 @@ Box.propTypes = {
   fontSize: PropTypes.number,
   lineHeight: PropTypes.number,
 
+  outline: PropTypes.number,
+  outlineOffset: PropTypes.number,
+
   text: PropTypes.string
 }
 
@@ -223,6 +232,9 @@ Box.defaultProps = {
 
   fontSize: null,
   lineHeight: null,
+
+  outline: null,
+  outlineOffset: null,
 
   text: null
 }
