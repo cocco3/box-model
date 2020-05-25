@@ -22,6 +22,7 @@ function App() {
     paddingBottom: '8',
     paddingLeft: '8',
 
+    lineHeight: 24,
     minHeight: '0',
     height: null
   }
@@ -127,6 +128,13 @@ function App() {
 
         <Fieldset legend="Content">
           <InputNumber
+            label="line-height"
+            min={0}
+            name="lineHeight"
+            onChange={handleInputChange}
+            value={inputs.lineHeight}
+          />
+          <InputNumber
             label="min-height"
             min={0}
             name="minHeight"
@@ -159,6 +167,7 @@ function App() {
           paddingBottom={parseInt(inputs.paddingBottom)}
           paddingLeft={parseInt(inputs.paddingLeft)}
 
+          lineHeight={parseInt(inputs.lineHeight)}
           minHeight={parseInt(inputs.minHeight)}
           height={parseInt(inputs.height)}
         />

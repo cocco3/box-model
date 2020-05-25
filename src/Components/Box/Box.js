@@ -23,6 +23,7 @@ function Box({
   paddingBottom,
   paddingLeft,
 
+  lineHeight,
   minHeight,
   height,
 
@@ -41,6 +42,7 @@ function Box({
     borderBottom,
     paddingTop,
     paddingBottom,
+    lineHeight,
     minHeight,
     height,
     setOffsetHeight
@@ -80,7 +82,10 @@ function Box({
           css={styles.inner}
           style={inlineStylesInner}
         >
-          <div css={styles.content}>
+          <div
+            css={styles.content}
+            style={{ lineHeight: `${lineHeight}px` }}
+          >
             {text}
           </div>
         </div>
@@ -108,6 +113,7 @@ Box.propTypes = {
 
   minHeight: PropTypes.number,
   height: PropTypes.number,
+  lineHeight: PropTypes.number,
 
   text: PropTypes.string
 }
@@ -128,6 +134,7 @@ Box.defaultProps = {
   paddingBottom: 0,
   paddingLeft: 0,
 
+  lineHeight: 0,
   minHeight: 0,
   height: null,
 
