@@ -17,7 +17,16 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "react/jsx-closing-bracket-location": ["error", "line-aligned"],
+      "react/jsx-closing-tag-location": "error",
+      "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
+      "react/jsx-indent-props": ["error", 2],
+      "react/jsx-max-props-per-line": ["error", { "maximum": 1 }],
+      "react/self-closing-comp": ["error", { "component": true }],
+      "semi": ["error", "never"]
+    }
   },
   "browserslist": {
     "production": [
