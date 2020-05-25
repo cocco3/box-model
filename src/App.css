@@ -1,5 +1,30 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 24px;
+}
+
 .App {
-  
+  display: flex;
+  flex-direction: row;
+}
+
+.App .controls {
+  flex: 0 1 230px;
+}
+
+.App .output {
+  flex: 1 0 auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {

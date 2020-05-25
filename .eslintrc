@@ -1,0 +1,46 @@
+{
+  "extends": "react-app",
+  "rules": {
+    "no-unused-vars": [
+      "warn", {
+        "args": "after-used",
+        "varsIgnorePattern": "^(React|jsx|css)$"
+      }
+    ],
+    "quotes": ["warn", "single"],
+    "react/jsx-closing-bracket-location": [
+      "error",
+      "line-aligned"
+    ],
+    "react/jsx-closing-tag-location": "error",
+    "react/jsx-first-prop-new-line": [
+      "error",
+      "multiline-multiprop"
+    ],
+    "react/jsx-indent": [
+      "error",
+      2
+    ],
+    "react/jsx-indent-props": [
+      "error",
+      2
+    ],
+    "react/jsx-max-props-per-line": [
+      "error",
+      {
+        "maximum": 1
+      }
+    ],
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": false
+      }
+    ],
+    "semi": [
+      "error",
+      "never"
+    ]
+  }
+}

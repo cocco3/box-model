@@ -1,5 +1,11 @@
-import React from "react"
+import React from 'react'
 import PropTypes from 'prop-types'
+
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+import css from '@emotion/css/macro'
+
+import styles from './styles'
 
 function Fieldset({
   children,
@@ -13,9 +19,11 @@ function Fieldset({
   )
 
   return (
-    <fieldset>
+    <fieldset css={styles.fieldset}>
       {LegendNode}
-      {children}
+      <div css={styles.grid}>
+        {children}
+      </div>
     </fieldset>
   )
 }
