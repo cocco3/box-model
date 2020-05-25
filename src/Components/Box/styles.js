@@ -20,6 +20,7 @@ export default (theme) => ({
     zIndex: 2,
     borderLeft: '1px solid #666',
     paddingLeft: '4px',
+    width: '60px',
 
     '&::before': {
       background: '#666',

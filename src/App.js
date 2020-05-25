@@ -45,7 +45,7 @@ function App() {
     fontSize: '16',
     lineHeight: '24',
 
-    text: 'Hello world'
+    text: 'Hello world!'
   }
 
   const [inputs, handleInputChange] = useInputChange(initialState)
