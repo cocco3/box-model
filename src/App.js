@@ -53,6 +53,38 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
+        <div className="box">
+          <Box
+            borderTop={parseInt(inputs.borderTop)}
+            borderRight={parseInt(inputs.borderRight)}
+            borderBottom={parseInt(inputs.borderBottom)}
+            borderLeft={parseInt(inputs.borderLeft)}
+
+            marginTop={parseInt(inputs.marginTop)}
+            marginRight={parseInt(inputs.marginRight)}
+            marginBottom={parseInt(inputs.marginBottom)}
+            marginLeft={parseInt(inputs.marginLeft)}
+
+            paddingTop={parseInt(inputs.paddingTop)}
+            paddingRight={parseInt(inputs.paddingRight)}
+            paddingBottom={parseInt(inputs.paddingBottom)}
+            paddingLeft={parseInt(inputs.paddingLeft)}
+
+            minHeight={parseInt(inputs.minHeight)}
+            height={parseInt(inputs.height)}
+            maxHeight={parseInt(inputs.maxHeight)}
+
+            minWidth={parseInt(inputs.minWidth)}
+            width={parseInt(inputs.width)}
+            maxWidth={parseInt(inputs.maxWidth)}
+
+            fontSize={parseInt(inputs.fontSize)}
+            lineHeight={parseInt(inputs.lineHeight)}
+
+            text={inputs.text}
+          />
+        </div>
+        
         <div className="controls">
 
           <Fieldset legend="Margin">
@@ -218,39 +250,7 @@ function App() {
             />
           </Fieldset>
         </div>
-        <div className="output">
-          <div className="box-wrap">
-            <Box
-              borderTop={parseInt(inputs.borderTop)}
-              borderRight={parseInt(inputs.borderRight)}
-              borderBottom={parseInt(inputs.borderBottom)}
-              borderLeft={parseInt(inputs.borderLeft)}
 
-              marginTop={parseInt(inputs.marginTop)}
-              marginRight={parseInt(inputs.marginRight)}
-              marginBottom={parseInt(inputs.marginBottom)}
-              marginLeft={parseInt(inputs.marginLeft)}
-
-              paddingTop={parseInt(inputs.paddingTop)}
-              paddingRight={parseInt(inputs.paddingRight)}
-              paddingBottom={parseInt(inputs.paddingBottom)}
-              paddingLeft={parseInt(inputs.paddingLeft)}
-
-              minHeight={parseInt(inputs.minHeight)}
-              height={parseInt(inputs.height)}
-              maxHeight={parseInt(inputs.maxHeight)}
-
-              minWidth={parseInt(inputs.minWidth)}
-              width={parseInt(inputs.width)}
-              maxWidth={parseInt(inputs.maxWidth)}
-
-              fontSize={parseInt(inputs.fontSize)}
-              lineHeight={parseInt(inputs.lineHeight)}
-
-              text={inputs.text}
-            />
-          </div>
-        </div>
       </div>
     </ThemeProvider>
   )
