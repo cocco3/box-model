@@ -46,9 +46,14 @@ function Box({
   const [offsetHeight, setOffsetHeight] = useState(null)
 
   useEffect(() => {
-    if (BoxRef) {
-      setOffsetHeight(BoxRef.current.offsetHeight)
+    function set() {
+      if (BoxRef) {
+        setOffsetHeight(BoxRef.current.offsetHeight)
+      }
     }
+    set()
+    window.addEventListener('resize', set)
+    return () => window.removeEventListener('resize', set)
   }, [
     borderTop,
     borderBottom,
@@ -65,9 +70,14 @@ function Box({
   const [offsetWidth, setOffsetWidth] = useState(null)
 
   useEffect(() => {
-    if (BoxRef) {
-      setOffsetWidth(BoxRef.current.offsetWidth)
+    function set() {
+      if (BoxRef) {
+        setOffsetWidth(BoxRef.current.offsetWidth)
+      }
     }
+    set()
+    window.addEventListener('resize', set)
+    return () => window.removeEventListener('resize', set)
   }, [
     borderLeft,
     borderRight,
