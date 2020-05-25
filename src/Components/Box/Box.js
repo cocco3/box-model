@@ -42,6 +42,7 @@ function Box({
   const styles = useThemeStyles(baseStyles)
 
   const BoxRef = useRef(null)
+
   const [offsetHeight, setOffsetHeight] = useState(null)
 
   useEffect(() => {
@@ -56,7 +57,27 @@ function Box({
     lineHeight,
     minHeight,
     height,
+    maxHeight,
+    text,
     setOffsetHeight
+  ])
+
+  const [offsetWidth, setOffsetWidth] = useState(null)
+
+  useEffect(() => {
+    if (BoxRef) {
+      setOffsetWidth(BoxRef.current.offsetWidth)
+    }
+  }, [
+    borderLeft,
+    borderRight,
+    paddingLeft,
+    paddingRight,
+    minWidth,
+    width,
+    maxWidth,
+    text,
+    setOffsetWidth
   ])
 
   const inlineStylesInner = {
@@ -96,26 +117,42 @@ function Box({
     </div>
   )
 
+  const WidthNode = (
+    <div
+      css={styles.width}
+      style={{
+        ...marginLeft && { marginLeft },
+        ...marginRight && { marginRight },
+        ...offsetHeight && { width: offsetWidth }
+      }}
+    >
+      <span>{`${offsetWidth}px`}</span>
+    </div>
+  )
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <div css={styles.outer}>
-        <div
-          ref={BoxRef}
-          css={styles.inner}
-          style={inlineStylesInner}
-        >
+    <div>
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div css={styles.outer}>
           <div
-            css={styles.content}
-            style={{
+            ref={BoxRef}
+            css={styles.inner}
+            style={inlineStylesInner}
+          >
+            <div
+              css={styles.content}
+              style={{
               fontSize: `${fontSize}px`,
               lineHeight: `${lineHeight}px`
             }}
-          >
-            {text}
+            >
+              {text}
+            </div>
           </div>
         </div>
+        {HeightNode}
       </div>
-      {HeightNode}
+      {WidthNode}
     </div>
   )
 }

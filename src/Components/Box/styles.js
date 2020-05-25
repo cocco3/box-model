@@ -11,6 +11,7 @@ export default (theme) => ({
   content: {
     backgroundColor: '#80ccff'
   },
+
   height: {
     display: 'flex',
     alignItems: 'center',
@@ -19,11 +20,6 @@ export default (theme) => ({
     zIndex: 2,
     borderLeft: '1px solid #666',
     paddingLeft: '4px',
-
-    span: {
-      background: 'white',
-      zIndex: 3
-    },
 
     '&::before': {
       background: '#666',
@@ -45,6 +41,39 @@ export default (theme) => ({
       height: '1px',
       width: '7px',
       left: '-4px'
+    }
+  },
+
+  width: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginTop: '8px',
+    position: 'relative',
+    zIndex: 2,
+    borderTop: '1px solid #666',
+    paddingTop: '4px',
+
+    '&::before': {
+      background: '#666',
+      display: 'block',
+      content: '""',
+      position: 'absolute',
+      left: 0,
+      width: '1px',
+      height: '7px',
+      top: '-4px'
+    },
+
+    '&::after': {
+      background: '#666',
+      display: 'block',
+      content: '""',
+      position: 'absolute',
+      right: 0,
+      width: '1px',
+      height: '7px',
+      top: '-4px'
     }
   }
 })
