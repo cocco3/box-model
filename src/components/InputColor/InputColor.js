@@ -7,6 +7,8 @@ import css from '@emotion/css/macro'
 
 import { useCreateId } from '../../hooks'
 
+import styles from './styles'
+
 function InputColor({
   label,
   name,
@@ -19,6 +21,7 @@ function InputColor({
     <React.Fragment>
       <label htmlFor={id.current}>{label}</label>
       <input
+        css={styles.input}
         id={id.current}
         name={name}
         onChange={onChange}
