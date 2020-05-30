@@ -1,13 +1,11 @@
 export default (theme) => ({
-  outer: {
-    backgroundColor: theme.colors.margin,
-  },
   inner: {
     alignItems: 'center',
-    backgroundColor: theme.colors.padding,
-    border: `0 solid ${theme.colors.border}`,
+    borderStyle: 'solid',
+    borderWidth: 0,
     display: 'flex',
-    outline: `0 dashed ${theme.colors.outline}`,
+    outlineStyle: 'dashed',
+    outlineWidth: 0,
     cursor: 'pointer'
   },
   content: {

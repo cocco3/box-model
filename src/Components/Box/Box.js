@@ -14,16 +14,19 @@ function Box({
   borderRight,
   borderBottom,
   borderLeft,
+  borderColor,
 
   marginTop,
   marginRight,
   marginBottom,
   marginLeft,
+  marginColor,
 
   paddingTop,
   paddingRight,
   paddingBottom,
   paddingLeft,
+  paddingColor,
 
   minHeight,
   height,
@@ -38,6 +41,7 @@ function Box({
 
   outline,
   outlineOffset,
+  outlineColor,
 
   text
 }) {
@@ -98,6 +102,7 @@ function Box({
     ...borderRight && { borderRightWidth: borderRight },
     ...borderBottom && { borderBottomWidth: borderBottom },
     ...borderLeft && { borderLeftWidth: borderLeft },
+    ...borderColor && { borderColor },
     
     ...marginTop && { marginTop },
     ...marginRight && { marginRight },
@@ -108,6 +113,7 @@ function Box({
     ...paddingRight && { paddingRight },
     ...paddingBottom && { paddingBottom },
     ...paddingLeft && { paddingLeft },
+    ...paddingColor && { backgroundColor: paddingColor },
 
     ...minHeight && { minHeight },
     ...height && { height },
@@ -118,7 +124,8 @@ function Box({
     ...maxWidth && { maxWidth },
 
     ...outline && { outlineWidth: outline },
-    ...outlineOffset && { outlineOffset }
+    ...outlineOffset && { outlineOffset },
+    ...outlineColor && { outlineColor }
   }
 
   const HeightNode = (
@@ -146,10 +153,16 @@ function Box({
     </div>
   )
 
+  const outerInlineStyles = {
+    ...marginColor && { backgroundColor: marginColor }
+  }
+
   return (
     <div>
       <div style={{ display: 'flex', flexDirection: 'row' }}>
-        <div css={styles.outer}>
+        <div
+          style={outerInlineStyles}
+        >
           <div
             ref={BoxRef}
             css={styles.inner}
@@ -178,16 +191,19 @@ Box.propTypes = {
   borderRight: PropTypes.number,
   borderBottom: PropTypes.number,
   borderLeft: PropTypes.number,
+  borderColor: PropTypes.string,
 
   marginTop: PropTypes.number,
   marginRight: PropTypes.number,
   marginBottom: PropTypes.number,
   marginLeft: PropTypes.number,
+  marginColor: PropTypes.string,
 
   paddingTop: PropTypes.number,
   paddingRight: PropTypes.number,
   paddingBottom: PropTypes.number,
   paddingLeft: PropTypes.number,
+  paddingColor: PropTypes.string,
 
   minHeight: PropTypes.number,
   height: PropTypes.number,
@@ -211,16 +227,19 @@ Box.defaultProps = {
   borderRight: 0,
   borderBottom: 0,
   borderLeft: 0,
+  borderColor: '#ffde8e',
 
   marginTop: 0,
   marginRight: 0,
   marginBottom: 0,
   marginLeft: 0,
+  marginColor: '#ffabab',
 
   paddingTop: 0,
   paddingRight: 0,
   paddingBottom: 0,
   paddingLeft: 0,
+  paddingColor: '#c9ff81',
 
   minHeight: 0,
   height: null,
@@ -235,6 +254,7 @@ Box.defaultProps = {
 
   outline: null,
   outlineOffset: null,
+  outlineColor: '#1a04d0',
 
   text: null
 }

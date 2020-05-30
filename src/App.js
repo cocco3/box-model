@@ -5,16 +5,11 @@ import './App.css'
 import { jsx } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 
-import { Box, Fieldset, InputNumber, InputText } from './components'
+import { Box, Fieldset, InputColor, InputNumber, InputText } from './components'
 import { useInputChange } from './hooks'
 
 const theme = {
-  colors: {
-    outline: '#1a04d0',
-    margin: '#ffabab',
-    border: '#ffde8e',
-    padding: '#c9ff81',
-  }
+  colors: {}
 }
 
 function App() {
@@ -24,16 +19,19 @@ function App() {
     marginRight: '8',
     marginBottom: '8',
     marginLeft: '8',
+    marginColor: '#ffabab',
 
     borderTop: '12',
     borderRight: '12',
     borderBottom: '12',
     borderLeft: '12',
+    borderColor: '#ffde8e',
 
     paddingTop: '16',
     paddingRight: '16',
     paddingBottom: '16',
     paddingLeft: '16',
+    paddingColor: '#c9ff81',
 
     minHeight: '0',
     height: '',
@@ -48,6 +46,7 @@ function App() {
 
     outline: '',
     outlineOffset: '',
+    outlineColor: '#1a04d0',
 
     text: 'Hello world!'
   }
@@ -63,16 +62,19 @@ function App() {
             borderRight={parseInt(inputs.borderRight)}
             borderBottom={parseInt(inputs.borderBottom)}
             borderLeft={parseInt(inputs.borderLeft)}
+            borderColor={inputs.borderColor}
 
             marginTop={parseInt(inputs.marginTop)}
             marginRight={parseInt(inputs.marginRight)}
             marginBottom={parseInt(inputs.marginBottom)}
             marginLeft={parseInt(inputs.marginLeft)}
+            marginColor={inputs.marginColor}
 
             paddingTop={parseInt(inputs.paddingTop)}
             paddingRight={parseInt(inputs.paddingRight)}
             paddingBottom={parseInt(inputs.paddingBottom)}
             paddingLeft={parseInt(inputs.paddingLeft)}
+            paddingColor={inputs.paddingColor}
 
             minHeight={parseInt(inputs.minHeight)}
             height={parseInt(inputs.height)}
@@ -87,6 +89,7 @@ function App() {
 
             outline={parseInt(inputs.outline)}
             outlineOffset={parseInt(inputs.outlineOffset)}
+            outlineColor={inputs.outlineColor}
 
             text={inputs.text}
           />
@@ -123,6 +126,12 @@ function App() {
               onChange={handleInputChange}
               value={inputs.marginLeft}
             />
+            <InputColor
+              label="margin color"
+              name="marginColor"
+              onChange={handleInputChange}
+              value={inputs.marginColor}
+            />
           </Fieldset>
 
           <Fieldset legend="Border">
@@ -154,6 +163,12 @@ function App() {
               onChange={handleInputChange}
               value={inputs.borderLeft}
             />
+            <InputColor
+              label="border-color"
+              name="borderColor"
+              onChange={handleInputChange}
+              value={inputs.borderColor}
+            />
           </Fieldset>
 
           <Fieldset legend="Padding">
@@ -184,6 +199,12 @@ function App() {
               name="paddingLeft"
               onChange={handleInputChange}
               value={inputs.paddingLeft}
+            />
+            <InputColor
+              label="padding color"
+              name="paddingColor"
+              onChange={handleInputChange}
+              value={inputs.paddingColor}
             />
           </Fieldset>
 
@@ -269,6 +290,12 @@ function App() {
               name="outlineOffset"
               onChange={handleInputChange}
               value={inputs.outlineOffset}
+            />
+            <InputColor
+              label="outline-color"
+              name="outlineColor"
+              onChange={handleInputChange}
+              value={inputs.outlineColor}
             />
           </Fieldset>
         </div>
