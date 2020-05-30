@@ -5,7 +5,15 @@ import './App.css'
 import { jsx } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 
-import { Box, Fieldset, InputColor, InputNumber, InputText } from './components'
+import {
+  Box,
+  Fieldset,
+  InputColor, 
+  InputNumber,
+  InputText,
+  RadioButton
+} from './components'
+
 import { useInputChange } from './hooks'
 
 const theme = {
@@ -298,6 +306,19 @@ function App() {
               value={inputs.outlineColor}
             />
           </Fieldset>
+
+          {false && (
+            <Fieldset legend="Units">
+              <RadioButton
+                label="px"
+                name="units"
+              />
+              <RadioButton
+                label="rem"
+                name="units"
+              />
+            </Fieldset>
+          )}
         </div>
 
       </div>
