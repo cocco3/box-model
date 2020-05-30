@@ -9,7 +9,7 @@
       runs-on: ubuntu-latest
       steps:
         - name: Setup Node.js for use with actions
-          uses: actions/setup-node@v1.4s
+          uses: actions/setup-node@v1.4
           with:
             version:  14.x
 
