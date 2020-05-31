@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react' // eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types'
 
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import css from '@emotion/css/macro'
+import css from '@emotion/css/macro' // eslint-disable-line no-unused-vars
 
 import styles from './styles'
 

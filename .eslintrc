@@ -1,12 +1,6 @@
 {
   "extends": "react-app",
   "rules": {
-    "no-unused-vars": [
-      "warn", {
-        "args": "after-used",
-        "varsIgnorePattern": "^(React|jsx|css)$"
-      }
-    ],
     "quotes": ["warn", "single"],
     "react/jsx-closing-bracket-location": [
       "error",
